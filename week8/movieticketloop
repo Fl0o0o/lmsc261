@@ -1,0 +1,17 @@
+while True:
+    age = input("Enter your age (or type 'quit' to exit): ")
+
+    if age == "quit":
+        print("Goodbye!")
+        break
+
+    age = int(age)
+
+    if age < 12:
+        price = 8
+    elif age >= 65:
+        price = 10
+    else:
+        price = 15
+
+    print(f"Your ticket price is ${price}.")
