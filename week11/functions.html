@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Functions</title>
+
+    <script>
+        // 1. noParams
+        function noParams() {
+            alert("noParams was called.");
+        }
+
+        // 2. threeParams
+        function threeParams(a, b, c) {
+            alert("threeParams was called: " + a + ", " + b + ", " + c);
+        }
+
+        // 3. greeting
+        function greeting() {
+            var name = prompt("What is your name?");
+            alert("Hello " + name + "!");
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Function Test</h1>
+
+    <button onclick="noParams()">Call noParams</button>
+    <br><br>
+
+    <button onclick="threeParams('Flo', 'DJ', 'NYC')">Call threeParams</button>
+    <br><br>
+
+    <button onclick="greeting()">Call greeting</button>
+
+</body>
+</html>
