@@ -1,0 +1,61 @@
+# int() function
+num = int("10")
+
+# Name: int
+# Arguments: A number or string that can be converted to an integer
+# Side Effects: None
+# Return Value: The integer version of the input
+
+
+# str() function
+text = str(123)
+
+# Name: str
+# Arguments: Any value
+# Side Effects: None
+# Return Value: The string version of the input
+
+
+# bool() function
+flag = bool(1)
+
+# Name: bool
+# Arguments: Any value
+# Side Effects: None
+# Return Value: True or False depending on the value
+
+
+# float() function
+num = float("3.14")
+
+# Name: float
+# Arguments: A number or string that can be converted to a float
+# Side Effects: None
+# Return Value: The float version of the input
+
+
+# len() function
+length = len("hello")
+
+# Name: len
+# Arguments: A sequence (like a string, list, etc.)
+# Side Effects: None
+# Return Value: The length of the input
+
+
+# pow() function
+result = pow(2, 3)
+
+# Name: pow
+# Arguments: Base and exponent
+# Side Effects: None
+# Return Value: The result of base raised to the exponent
+
+
+# abs() function
+value = abs(-5)
+
+# Name: abs
+# Arguments: A number
+# Side Effects: None
+# Return Value: The absolute value of the number

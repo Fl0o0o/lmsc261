@@ -1,0 +1,6 @@
+name = input("Enter your full name: ")
+
+length = len(name)
+
+print("Length:", length)
+print("Type:", type(length))
