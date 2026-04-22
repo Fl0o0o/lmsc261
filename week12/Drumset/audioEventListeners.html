@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drum Pad</title>
+    <style>
+        body {
+            text-align: center;
+            background: #111;
+            color: white;
+            font-family: Arial;
+        }
+
+        img {
+            width: 120px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00f0ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🎵 Drum Pad</h1>
+<p>Click or press keys (A S D F G H J)</p>
+
+<!-- IMAGES -->
+<img id="kick" src="images/kick.png">
+<img id="snare" src="images/snare.png">
+<img id="crash" src="images/crash.png">
+<img id="tom1" src="images/tom1.png">
+<img id="tom2" src="images/tom2.png">
+<img id="tom3" src="images/tom3.png">
+<img id="tom4" src="images/tom4.png">
+
+<script>
+
+// 播放声音函数
+function playSound(file) {
+    let audio = new Audio(file);
+    audio.currentTime = 0;
+    audio.play();
+}
+
+// CLICK EVENTS（7个）
+document.getElementById("kick").addEventListener("click", function() {
+    playSound("sounds/kick-bass.mp3");
+});
+
+document.getElementById("snare").addEventListener("click", function() {
+    playSound("sounds/snare.mp3");
+});
+
+document.getElementById("crash").addEventListener("click", function() {
+    playSound("sounds/crash.mp3");
+});
+
+document.getElementById("tom1").addEventListener("click", function() {
+    playSound("sounds/tom-1.mp3");
+});
+
+document.getElementById("tom2").addEventListener("click", function() {
+    playSound("sounds/tom-2.mp3");
+});
+
+document.getElementById("tom3").addEventListener("click", function() {
+    playSound("sounds/tom-3.mp3");
+});
+
+document.getElementById("tom4").addEventListener("click", function() {
+    playSound("sounds/tom-4.mp3");
+});
+
+
+// KEYBOARD EVENTS（加分项🔥）
+document.addEventListener("keydown", function(event) {
+    if (event.key === "a") playSound("sounds/kick-bass.mp3");
+    if (event.key === "s") playSound("sounds/snare.mp3");
+    if (event.key === "d") playSound("sounds/crash.mp3");
+    if (event.key === "f") playSound("sounds/tom-1.mp3");
+    if (event.key === "g") playSound("sounds/tom-2.mp3");
+    if (event.key === "h") playSound("sounds/tom-3.mp3");
+    if (event.key === "j") playSound("sounds/tom-4.mp3");
+});
+
+</script>
+
+</body>
+</html>
