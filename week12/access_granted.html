@@ -1,48 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Security System</title>
+    <title>Security System</title>
 
-  <style>
-    body {
-      font-family: "Courier New", Courier, monospace;
-      text-align: center;
-      padding: 50px;
-      background-color: #1a1a1a;
-      color: white;
-    }
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+            padding: 50px;
+            background-color: #1a1a1a;
+            color: white;
+        }
 
-    .profile-card {
-      border: 2px solid #ff4444;
-      padding: 20px;
-      border-radius: 15px;
-      display: inline-block;
-    }
+        .profile-card {
+            border: 2px solid #ff4444;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
 
-    .highlight {
-      background-color: #00ff00;
-      color: black;
-      font-weight: bold;
-      padding: 5px;
-    }
-  </style>s d
+        .highlight {
+            background-color: #00ff00;
+            color: black;
+            font-weight: bold;
+            padding: 5px;
+        }
+    </style>
 </head>
-<body>
-  <div class="profile-card">
-    <h1 id="status">Access Denied</h1>
-    <p class="hackedStatus">Hacked by... Nobody</p>
-  </div>
 
-  <script>
-    function changePageColorBlue() {
-        let body = document.querySelector("body");
-        body.style
-    }
-    document.getElementById("status").textContent = "Access Granted";
-    document.getElementById("status").classList.add("highlight");
-    document.querySelector(".hackedStatus").textContent = "Hacked by Flo";
-  </script>
-  
+<body>
+
+    <div class="profile-card">
+        <h1 id="status">Access Denied</h1>
+        <p class="hackedStatus">Hacked by... Nobody</p>
+    </div>
+
+    <script>
+        // change title text
+        document.getElementById("status").textContent = "Access Granted";
+
+        // add green highlight
+        document.getElementById("status").classList.add("highlight");
+
+        // change hacked text（换成你名字也可以）
+        document.querySelector(".hackedStatus").textContent = "Hacked by Flo";
+    </script>
+
 </body>
 </html>
-  
