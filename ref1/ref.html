@@ -1,0 +1,194 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Harmonic DJ Set Planner</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 150px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 10px;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .track {
+            border: 1px solid #ff3366;
+            padding: 12px;
+            margin: 10px auto;
+            width: 650px;
+            text-align: left;
+            background-color: #1f1f1f;
+        }
+
+        .smooth {
+            color: #00ff66;
+            font-weight: bold;
+        }
+
+        .compatible {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .risky {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        .smallText {
+            color: #cccccc;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Mini Harmonic DJ Set Planner</h1>
+
+    <p class="smallText">
+        Add tracks with BPM, energy, and Camelot key. The planner will check if each transition is smooth or risky.
+    </p>
+
+    <input id="trackName" placeholder="Track name">
+    <input id="bpm" placeholder="BPM">
+    <input id="energy" placeholder="Energy">
+    <input id="camelot" placeholder="Camelot key">
+
+    <br>
+
+    <button onclick="addTrack()">Add Track</button>
+    <button onclick="sortByBPM()">Sort by BPM</button>
+    <button onclick="clearSet()">Clear Set</button>
+
+    <h2>Set List</h2>
+    <p id="summary">Total Tracks: 0</p>
+
+    <div id="setList"></div>
+
+    <script>
+        let tracks = [];
+
+        function addTrack() {
+            let name = document.getElementById("trackName").value;
+            let bpm = parseInt(document.getElementById("bpm").value);
+            let energy = document.getElementById("energy").value;
+            let camelot = document.getElementById("camelot").value.toUpperCase();
+
+            let track = {
+                name: name,
+                bpm: bpm,
+                energy: energy,
+                camelot: camelot
+            };
+
+            tracks.push(track);
+
+            document.getElementById("trackName").value = "";
+            document.getElementById("bpm").value = "";
+            document.getElementById("energy").value = "";
+            document.getElementById("camelot").value = "";
+
+            showTracks();
+        }
+
+        function showTracks() {
+            let setList = document.getElementById("setList");
+            setList.innerHTML = "";
+
+            for (let i = 0; i < tracks.length; i++) {
+                let div = document.createElement("div");
+                div.classList.add("track");
+
+                let transitionText = "First track";
+                let transitionClass = "smooth";
+
+                if (i > 0) {
+                    let previousTrack = tracks[i - 1];
+                    let currentTrack = tracks[i];
+
+                    let bpmDifference = Math.abs(currentTrack.bpm - previousTrack.bpm);
+                    let keyResult = checkCamelot(previousTrack.camelot, currentTrack.camelot);
+
+                    if (bpmDifference <= 5 && keyResult == "Smooth") {
+                        transitionText = "Smooth transition";
+                        transitionClass = "smooth";
+                    } else if (bpmDifference <= 10 && keyResult != "Risky") {
+                        transitionText = "Compatible transition";
+                        transitionClass = "compatible";
+                    } else {
+                        transitionText = "Risky transition";
+                        transitionClass = "risky";
+                    }
+                }
+
+                div.innerHTML =
+                    "<strong>" + tracks[i].name + "</strong><br>" +
+                    "BPM: " + tracks[i].bpm + "<br>" +
+                    "Energy: " + tracks[i].energy + "<br>" +
+                    "Camelot Key: " + tracks[i].camelot + "<br>" +
+                    "Transition: <span class='" + transitionClass + "'>" + transitionText + "</span>";
+
+                setList.appendChild(div);
+            }
+
+            document.getElementById("summary").textContent = "Total Tracks: " + tracks.length;
+        }
+
+        function checkCamelot(key1, key2) {
+            let number1 = parseInt(key1);
+            let number2 = parseInt(key2);
+            let letter1 = key1.slice(-1);
+            let letter2 = key2.slice(-1);
+
+            if (key1 == key2) {
+                return "Smooth";
+            }
+
+            if (number1 == number2) {
+                return "Smooth";
+            }
+
+            if (letter1 == letter2 && Math.abs(number1 - number2) == 1) {
+                return "Smooth";
+            }
+
+            if (Math.abs(number1 - number2) == 1) {
+                return "Compatible";
+            }
+
+            return "Risky";
+        }
+
+        function sortByBPM() {
+            tracks.sort(function(a, b) {
+                return a.bpm - b.bpm;
+            });
+
+            showTracks();
+        }
+
+        function clearSet() {
+            tracks = [];
+            showTracks();
+        }
+    </script>
+
+</body>
+</html>

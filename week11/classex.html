@@ -1,35 +1,33 @@
 
 
-<script>
-    // This is where our JS goes
+<<script>
 
-    //alert("This is an alert!");
-    //console.log('Thi is a console .log!'');
-    let username = prompt ("what is your name? ");
-    if ( username === "Sam"){
+let username = prompt("What is your name?");
+
+if (username === "Flo") {
+
+    let magicPassword = "Flo123";
+    let userEnteredPassword = "";
+
+  
+    while (userEnteredPassword !== magicPassword) {
+        userEnteredPassword = prompt("Enter password:");
+    }
 
     
-    let magicPassword = "Fiona123";
-    let userEnteredpassword = "";
-
-    while (userEnteredpassword !=magicPassword)
-
-    function sayHappybirthdayNTimes(numberOfTime, username) {
+    function happyBirthdayNTimes(numberOfTimes, username) {
         let count = 1;
-        while ( count <= numberOfTime ) {
-            alert("Happybirthday," + username + "!!!!" + count);
 
+        while (count <= numberOfTimes) {
+            alert("Happy Birthday, " + username + "! " + count);
             count++;
-        
         }
-       
     }
-    
-    happybirthdayNTimes(3, "Sam")
-    happybirthdayNTimes(1, "TIMMY")
 
+    /
+    happyBirthdayNTimes(3, "Flo");
+    happyBirthdayNTimes(1, "Flo");
 
-    
+}
 
-    }
 </script>

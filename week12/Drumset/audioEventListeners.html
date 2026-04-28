@@ -41,14 +41,14 @@
 
 <script>
 
-// 播放声音函数
+
 function playSound(file) {
     let audio = new Audio(file);
     audio.currentTime = 0;
     audio.play();
 }
 
-// CLICK EVENTS（7个）
+
 document.getElementById("kick").addEventListener("click", function() {
     playSound("sounds/kick-bass.mp3");
 });
@@ -78,7 +78,7 @@ document.getElementById("tom4").addEventListener("click", function() {
 });
 
 
-// KEYBOARD EVENTS（加分项🔥）
+
 document.addEventListener("keydown", function(event) {
     if (event.key === "a") playSound("sounds/kick-bass.mp3");
     if (event.key === "s") playSound("sounds/snare.mp3");
